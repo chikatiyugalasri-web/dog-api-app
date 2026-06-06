@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Dog Viewer</title>
+</head>
+<body>
+    <h1>Random Dog Image</h1>
+
+    <button onclick="getDog()">Get Dog</button>
+
+    <br><br>
+
+    <img id="dogImage" width="400">
+
+    <script>
+        async function getDog() {
+            const response = await fetch("https://dog.ceo/api/breeds/image/random");
+            const data = await response.json();
+
+            document.getElementById("dogImage").src = data.message;
+        }
+    </script>
+</body>
+</html>
